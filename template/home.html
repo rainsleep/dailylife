@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <link href="{{static_url('css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
+ <style>
+ body{background:#EBEBEB;}
+ img{
+
+	margin-top:50px; 
+  max-width:200px;
+ margin:auto;
+ }
+.container{
+	height:550px;
+	}	 
+ </style>
+ 
+<title>Person Recentily</title>
+</head>
+<body>
+
+<div class="container">
+ <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+       {%for index in infos%}
+      {%if index==0%}
+    <li data-target="#carousel-example-generic" data-slide-to="{{index}}" class="active"></li>
+      {%else%}
+    <li data-target="#carousel-example-generic" data-slide-to="{{index}}"></li>
+      {%end%}
+       {%end%}
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+
+      {%for index in infos%}
+     {%if index == 0%}
+    <div class="item active">
+     {%else%}
+        <div class="item">
+      {%end%}
+    <img  src="{{static_url('image/info.png')}}" alt="...">
+    <div class="carousel-caption">
+    
+     <img src="{{infos[index][0]}}" alt="..." class="img-rounded">
+    <h3>{{infos[index][1]}}</h3>
+    <p>{{infos[index][2]}}</p>
+  </div>
+    </div>
+    {%end%}
+  </div>
+ 
+</div>
+</div>
+
+<div class="footer">
+<a href="mailto:hello@casserolelabs.com" class="sayhi yellow" style="text-decoration:none">
+<button type="button" class="btn btn-info" style="margin:auto;display:block;">点击进入我的主页</button>
+</a>
+</div>
+ <script src="{{static_url('js/jquery.js')}}"></script>
+    <script src="{{static_url('js/bootstrap.min.js')}}"></script>
+</body>
+</html>
